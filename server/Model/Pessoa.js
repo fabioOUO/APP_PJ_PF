@@ -24,7 +24,7 @@ const Pessoa = DATABASE.define("pessoa", {
     references: {
       /* Declaração de chave estrangeira */
       model: Grupo,
-      key: codigo,
+      key: "codigo",
     },
   },
 });

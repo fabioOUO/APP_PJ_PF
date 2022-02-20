@@ -20,7 +20,7 @@ const Telefone = DATABASE.define("telefone", {
     references: {
       /* Declaração de chave estrangeira */
       model: Pessoa,
-      key: codigo,
+      key: "codigo",
     },
   },
 });
