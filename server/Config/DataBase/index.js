@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ path: "./server/.env" });
 
 /* Configurações de conexão com o banco de dados */
 
@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   process.env.USER,
   process.env.PASSWORD,
   {
-    host: process.env.HOST,
+    host: process.env.SERVER_HOST,
     dialect: process.env.DIALECT,
     port: process.env.PORT_DATA_BASE,
   }
