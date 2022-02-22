@@ -10,9 +10,9 @@ const Grupo = DATABASE.define("grupo", {
     primaryKey: true,
   },
   descricao: {
-      type: DataTypes.STRING(20),
-      allowNull: false,
-  }
+    type: DataTypes.STRING(20),
+    allowNull: false,
+  },
 });
 
 /* Exportação */
