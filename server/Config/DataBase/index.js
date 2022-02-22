@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "./server/.env" });
+require("dotenv").config({ path: "../.env" });
 
 /* Configurações de conexão com o banco de dados */
 const Sequelize = require("sequelize");
