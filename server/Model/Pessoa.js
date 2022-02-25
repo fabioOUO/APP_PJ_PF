@@ -1,9 +1,10 @@
+/* Importação */
 const { DataTypes } = require("sequelize");
 const DATABASE = require("../Config/DataBase");
-const { Grupo } = require(".");
+const { GrupoModel } = require("./Grupo");
 
 /* Definição de modelo de tabela, usando sequelise */
-const Pessoa = DATABASE.define("pessoa", {
+const PessoaModel = DATABASE.define("pessoa", {
   codigo: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -23,11 +24,11 @@ const Pessoa = DATABASE.define("pessoa", {
     allowNull: false,
     references: {
       /* Declaração de chave estrangeira */
-      model: Grupo,
+      model: GrupoModel,
       key: "codigo",
     },
   },
 });
 
 /* Exportação */
-module.exports = { Pessoa };
+module.exports = { PessoaModel };

@@ -1,9 +1,10 @@
+/* Importação */
 const { DataTypes } = require("sequelize");
 const DATABASE = require("../Config/DataBase");
-const { Pessoa } = require(".");
+const { PessoaModel } = require("./Pessoa");
 
 /* Definição de modelo de tabela, usando sequelise */
-const PessoaFisica = DATABASE.define("pessoaFisica", {
+const PessoaFisicaModel = DATABASE.define("pessoaFisica", {
   codigo: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -25,11 +26,11 @@ const PessoaFisica = DATABASE.define("pessoaFisica", {
     allowNull: false,
     references: {
       /* Declaração de chave estrangeira */
-      model: Pessoa,
+      model: PessoaModel,
       key: "codigo",
     },
   },
 });
 
 /* Exportação */
-module.exports = { PessoaFisica };
+module.exports = { PessoaFisicaModel };

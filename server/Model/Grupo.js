@@ -1,8 +1,9 @@
+/* Importação */
 const { DataTypes } = require("sequelize");
 const DATABASE = require("../Config/DataBase");
 
 /* Definição de modelo de tabela, usando sequelise */
-const Grupo = DATABASE.define("grupo", {
+const GrupoModel = DATABASE.define("grupo", {
   codigo: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -16,4 +17,4 @@ const Grupo = DATABASE.define("grupo", {
 });
 
 /* Exportação */
-module.exports = { Grupo };
+module.exports = { GrupoModel };

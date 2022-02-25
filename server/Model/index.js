@@ -1,7 +1,15 @@
-const { Pessoa } = require("./Pessoa");
-const { PessoaFisica } = require("./PessoaFisica");
-const { PessoaJuridica } = require("./PessoaJuridica");
-const { Telefone } = require("./Telefone");
-const { Grupo } = require("./Grupo");
+/* Importação */
+const { PessoaModel } = require("./Pessoa");
+const { PessoaFisicaModel } = require("./PessoaFisica");
+const { PessoaJuridicaModel } = require("./PessoaJuridica");
+const { TelefoneModel } = require("./Telefone");
+const { GrupoModel } = require("./Grupo");
 
-module.exports = { Pessoa, PessoaFisica, PessoaJuridica, Telefone, Grupo };
+/* Exportação */
+module.exports = {
+  PessoaModel,
+  PessoaFisicaModel,
+  PessoaJuridicaModel,
+  TelefoneModel,
+  GrupoModel,
+};
