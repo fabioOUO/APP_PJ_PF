@@ -1,4 +1,5 @@
-require("dotenv").config({ path: "../.env" });
+/* Importação arquivo .env */
+require("dotenv").config();
 
 /* Configurações de conexão com o banco de dados */
 const Sequelize = require("sequelize");
