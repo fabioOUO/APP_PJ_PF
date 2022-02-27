@@ -1,6 +1,6 @@
 /* Importação */
 const { validationVar } = require("../Validations");
-const { errorHandling } = require("../Others");
+const { error, errorHandling } = require("../Others");
 
 /* Declaração de função */
 
@@ -17,7 +17,7 @@ const post = (req, res, controller, controllerName, newRegister) => {
       return controller
         .create(AUX)
         .then((register) => res.status(201).send(register))
-        .catch((error) => console.error(errorHandling(error)));
+        .catch((e) => error(e, res));
     }
   } catch (error) {
     console.error(errorHandling(error));

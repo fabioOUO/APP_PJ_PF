@@ -1,6 +1,6 @@
 /* Importação */
 const { validationVar } = require("../Validations");
-const { errorHandling } = require("../Others");
+const { error, errorHandling } = require("../Others");
 
 /* Declaração de função */
 
@@ -11,7 +11,7 @@ const get = (req, res, controller, controllerName) => {
       return controller
         .findAll()
         .then((registers) => res.status(200).send(registers))
-        .catch((error) => console.error(errorHandling(error)));
+        .catch((e) => error(e, res));
     }
   } catch (error) {
     console.error(errorHandling(error));
