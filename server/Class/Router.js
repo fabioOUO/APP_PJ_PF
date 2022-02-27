@@ -1,5 +1,4 @@
 /* Importação */
-const { Pessoa } = require("./Pessoa");
 const { get, getId, post, update, deleteId } = require("../Functions/Routes");
 
 /* Estrutura da class */
