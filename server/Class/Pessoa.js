@@ -5,7 +5,7 @@ class Pessoa {
     this.nome = nome;
     this.tipo = tipo;
     this.codigoGrupo = codigoGrupo;
-    this.campos = ["descricao", "nome", "tipo", "codigoGrupo"];
+    this.campos = ["nome", "tipo", "codigoGrupo"];
   }
 
   /* Funções sets */
