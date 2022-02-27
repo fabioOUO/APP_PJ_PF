@@ -1,7 +1,7 @@
 /* Importação */
-const { validationVar } = require("./validation");
-const { errorHandling } = require("./error");
-const { findByPk } = require("./findByPk");
+const { validationVar } = require("../Validations");
+const { errorHandling } = require("../Others");
+const { findByPk } = require("../Controllers/findByPk");
 
 /* Declaração de função */
 

@@ -1,7 +1,7 @@
 /* Importação */
-const { validationVar } = require("./validation");
-const { errorHandling } = require("./error");
-const DATABASE = require("../Config/DataBase");
+const DATABASE = require("../../Config/DataBase");
+const { validationVar } = require("../Validations");
+const { errorHandling } = require("../Outhers");
 
 /* Declaração de função */
 

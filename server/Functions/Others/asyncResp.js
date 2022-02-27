@@ -1,16 +1,13 @@
 /* Importação */
-const { validationVar } = require("./validation");
+const { validationVar } = require("../Validations");
 const { errorHandling } = require("./error");
 
 /* Declaração de função */
 
 /* Trata uma resposta assincrona */
-function asyncResp(asyncFunction, printResp = true) {
+function asyncResp(asyncFunction) {
   try {
-    if (validationVar(asyncFunction, "asyncFunction"))
-      asyncFunction
-        .then((r) => (printResp ? console.log(r) : false))
-        .catch((e) => console.log(e));
+    if (validationVar(asyncFunction, "asyncFunction")) return asyncFunction;
   } catch (error) {
     console.error(errorHandling(error));
   }

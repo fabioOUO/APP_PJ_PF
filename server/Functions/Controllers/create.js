@@ -1,6 +1,6 @@
 /* Importação */
-const { validationVar } = require("./validation");
-const { errorHandling } = require("./error");
+const { validationVar } = require("../Validations");
+const { errorHandling } = require("../Others");
 
 /* Declaração de função */
 

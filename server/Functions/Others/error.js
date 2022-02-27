@@ -8,13 +8,15 @@ const refError = (variabe) =>
 
 /* Tratamento de erros */
 const errorHandling = (error, variabe) => {
-  let e;
+  let e = {};
   if (error instanceof ReferenceError) {
     e.name = "ReferenceError";
     e.message = `Erro: Função criada sem variavel obrigatorio: ${variabe}`;
+    e.stack = error.stack;
   } else {
-    e = Error();
-    e.message = "Erro desconheido...";
+    e.name = error.name;
+    e.message = error.message;
+    e.stack = error.stack;
   }
   return { ...e };
 };

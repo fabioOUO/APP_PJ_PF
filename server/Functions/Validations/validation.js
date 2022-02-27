@@ -1,5 +1,5 @@
 /* Importação */
-const { errorHandling } = require("./error");
+const { errorHandling } = require("../Others/error");
 
 /* Declaração de função */
 
@@ -12,8 +12,6 @@ function validationVar(variabe, nameVariabe) {
   }
   return variabe != undefined && variabe != null;
 }
-
-console.log(validationVar());
 
 /* Exportação */
 module.exports = { validationVar };
