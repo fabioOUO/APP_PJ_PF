@@ -1,12 +1,12 @@
 /* Importação */
+const { asyncResp } = require("../Functions/Others");
 const {
   create,
   findByPk,
   findAll,
   update,
   del,
-  asyncResp,
-} = require("../Functions");
+} = require("../Functions/Controllers");
 
 /* Estrutura da class */
 class Controller {
