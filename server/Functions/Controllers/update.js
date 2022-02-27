@@ -17,8 +17,11 @@ async function update(model, newRegister) {
         newRegister.getCampos(),
       ];
 
-      for (let i = 0; i < CAMPOS.length; i++)
-        OLD[CAMPOS[i]] = newRegister[CAMPOS[i]];
+      for (let i = 0; i < CAMPOS.length; i++) {
+        /* O vinculo com a pessoa não mudara */
+        if (CAMPOS[i] !== "codigoPessoa")
+          OLD[CAMPOS[i]] = newRegister[CAMPOS[i]];
+      }
       return await OLD.save();
     }
   } catch (error) {
