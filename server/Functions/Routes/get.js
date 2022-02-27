@@ -4,6 +4,7 @@ const { errorHandling } = require("../Others");
 
 /* Declaração de função */
 
+/* Retorna todos os registros da tabela */
 const get = (req, res, controller, controllerName) => {
   try {
     if (validationVar(controller, controllerName)) {

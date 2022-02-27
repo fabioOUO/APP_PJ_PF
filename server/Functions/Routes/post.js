@@ -4,6 +4,7 @@ const { errorHandling } = require("../Others");
 
 /* Declaração de função */
 
+/* Cria um novo registro na tabela */
 const post = (req, res, controller, controllerName, newRegister) => {
   try {
     if (validationVar(controller, controllerName)) {

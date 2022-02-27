@@ -12,12 +12,11 @@ const errorHandling = (error, variabe) => {
   if (error instanceof ReferenceError) {
     e.name = "ReferenceError";
     e.message = `Erro: Função criada sem variavel obrigatorio: ${variabe}`;
-    e.stack = error.stack;
   } else {
     e.name = error.name;
     e.message = error.message;
-    e.stack = error.stack;
   }
+  e.stack = error.stack;
   return { ...e };
 };
 

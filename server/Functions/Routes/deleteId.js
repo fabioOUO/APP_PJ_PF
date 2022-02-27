@@ -4,6 +4,7 @@ const { errorHandling } = require("../Others");
 
 /* Declaração de função */
 
+/* Deleta um registro de determinado id(codigo) */
 const deleteId = (req, res, controller, controllerName, id) => {
   try {
     if (validationVar(controller, controllerName)) {

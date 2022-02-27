@@ -4,6 +4,7 @@ const { errorHandling } = require("../Others");
 
 /* Declaração de função */
 
+/* Atualiza um registro em uma tabela */
 const update = (req, res, controller, controllerName, newRegister) => {
   try {
     if (validationVar(controller, controllerName)) {

@@ -3,7 +3,7 @@ const { errorHandling } = require("../Others/error");
 
 /* Declaração de função */
 
-/* Verifica se uma variavel é 'undefined' ou 'null' */
+/* Verifica se uma variavel é 'undefined' ou 'null', se for retorna um erro */
 function validationVar(variabe, nameVariabe) {
   try {
     if (!variabe) throw errorHandling(new ReferenceError(), nameVariabe);

@@ -4,6 +4,7 @@ const { errorHandling } = require("../Others");
 
 /* Declaração de função */
 
+/* Retorna um registro de determinado id(codigo) */
 const getId = (req, res, controller, controllerName) => {
   try {
     if (validationVar(controller, controllerName)) {
