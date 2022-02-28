@@ -4,7 +4,7 @@ class Telefone {
     this.codigo = codigo;
     this.telefone = telefone;
     this.codigoPessoa = codigoPessoa;
-    this.campos = ["telefone", "tipo", "codigoPessoa"];
+    this.campos = ["telefone", "codigoPessoa"];
   }
 
   /* Funções sets */
