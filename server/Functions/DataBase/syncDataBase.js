@@ -1,7 +1,7 @@
 /* Importação */
 const DATABASE = require("../../Config/DataBase");
 const { validationVar } = require("../Validations");
-const { errorHandling } = require("../Outhers");
+const { error } = require("../Others");
 
 /* Declaração de função */
 
@@ -10,8 +10,8 @@ async function syncDataBase() {
   try {
     if (validationVar(DATABASE, "DATABASE"))
       return await DATABASE.sync({ alter: true });
-  } catch (error) {
-    console.error(error);
+  } catch (e) {
+    return error(e);
   }
   return undefined;
 }
@@ -26,6 +26,8 @@ async function syncDataBaseForce() {
   }
   return undefined;
 }
+
+syncDataBaseForce();
 
 /* Exportação */
 module.exports = { syncDataBase, syncDataBaseForce };

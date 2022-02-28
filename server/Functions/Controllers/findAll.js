@@ -1,6 +1,6 @@
 /* Importação */
 const { validationVar } = require("../Validations");
-const { errorHandling } = require("../Others");
+const { error } = require("../Others");
 
 /* Declaração de função */
 
@@ -8,10 +8,9 @@ const { errorHandling } = require("../Others");
 async function findAll(model) {
   try {
     if (validationVar(model, "model")) return await model.findAll();
-  } catch (error) {
-    console.error(errorHandling(error));
+  } catch (e) {
+    return error(e);
   }
-  return undefined;
 }
 
 /* Exportação */

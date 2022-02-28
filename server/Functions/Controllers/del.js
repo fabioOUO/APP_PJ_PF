@@ -1,6 +1,6 @@
 /* Importação */
 const { validationVar } = require("../Validations");
-const { errorHandling } = require("../Others");
+const { error, connectionError } = require("../Others");
 const { findByPk } = require("../Controllers/findByPk");
 
 /* Declaração de função */
@@ -10,12 +10,12 @@ async function del(model, id) {
   try {
     if (validationVar(model, "model") && validationVar(id, "id")) {
       const REGISTER = await findByPk(model, id);
-      return validationVar(REGISTER, "REGISTER")
-        ? await REGISTER.destroy()
-        : undefined;
+      if (REGISTER.name === "ConnectionError") throw connectionError();
+      if (validationVar(REGISTER, "REGISTER") && !(REGISTER instanceof Error))
+        return await REGISTER.destroy();
     }
-  } catch (error) {
-    console.error(errorHandling(error));
+  } catch (e) {
+    return error(e, undefined);
   }
 }
 

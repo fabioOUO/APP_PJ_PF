@@ -1,6 +1,6 @@
 /* Importação */
 const { validationVar } = require("../Validations");
-const { errorHandling } = require("../Others");
+const { error } = require("../Others");
 const { findByPk } = require("../Controllers/findByPk");
 
 /* Declaração de função */
@@ -24,10 +24,9 @@ async function update(model, newRegister) {
       }
       return await OLD.save();
     }
-  } catch (error) {
-    console.error(errorHandling(error));
+  } catch (e) {
+    return error(e, undefined);
   }
-  return undefined;
 }
 
 /* Exportação */

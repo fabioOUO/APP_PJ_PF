@@ -1,6 +1,6 @@
 /* Importação */
 const { validationVar } = require("../Validations");
-const { error, errorHandling } = require("../Others");
+const { error } = require("../Others");
 
 /* Declaração de função */
 
@@ -13,8 +13,8 @@ const deleteId = (req, res, controller, controllerName, id) => {
         .then((register) => res.status(200).send(register))
         .catch((e) => error(e, res));
     }
-  } catch (error) {
-    console.error(errorHandling(error));
+  } catch (e) {
+    return error(e);
   }
 };
 

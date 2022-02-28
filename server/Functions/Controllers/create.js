@@ -1,6 +1,6 @@
 /* Importação */
 const { validationVar } = require("../Validations");
-const { errorHandling } = require("../Others");
+const { error } = require("../Others");
 
 /* Declaração de função */
 
@@ -12,10 +12,10 @@ async function create(model, newRegister) {
       validationVar(newRegister, "newRegister")
     )
       return await model.create(newRegister);
-  } catch (error) {
-    console.error(errorHandling(error));
+  } catch (e) {
+    console.log(e);
+    return error(e);
   }
-  return undefined;
 }
 
 /* Exportação */

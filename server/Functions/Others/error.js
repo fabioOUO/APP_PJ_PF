@@ -1,5 +1,6 @@
 const {
   UniqueConstraintError,
+  ForeignKeyConstraintError,
   ConnectionError,
   TimeoutError,
 } = require("sequelize");
@@ -16,7 +17,14 @@ const refError = (variabe) => {
 const uniqueConstraintError = () => {
   const error = new Error();
   error.name = "ReferenceError";
-  error.message = "Erro campo é unico, não pode ser duplicado.";
+  error.message = "Erro: campo é unico, não pode ser duplicado.";
+  return error;
+};
+
+const foreignKeyConstraintError = () => {
+  const error = new Error();
+  error.name = "ForeignKeyConstraintError";
+  error.message = "Erro: Erro ao vincular chave estragera no registro.";
   return error;
 };
 
@@ -37,9 +45,13 @@ const timeoutError = () => {
 /* Tratamento de erros */
 const errorHandling = (error, variabe) => {
   let e = {};
+  // apagar
+  console.log("errorHandling = " + error);
 
   if (error instanceof ReferenceError) e = refError(variabe);
   else if (error instanceof UniqueConstraintError) e = uniqueConstraintError();
+  else if (error instanceof ForeignKeyConstraintError)
+    e = foreignKeyConstraintError();
   else if (error instanceof ConnectionError) e = connectionError();
   else if (error instanceof TimeoutError) e = timeoutError();
   else return { ...error };
@@ -48,9 +60,10 @@ const errorHandling = (error, variabe) => {
 };
 
 const error = (e, res) => {
-  const ERROR = errorHandling(e);
+  const ERROR = errorHandling(e, undefined);
   console.error(ERROR);
-  res.status(500).send(e);
+  if (res) res.status(500).send(ERROR);
+  return ERROR;
 };
 
 /* Exportação */
