@@ -10,7 +10,7 @@ function asyncResp(asyncFunction) {
     if (validationVar(asyncFunction, "asyncFunction")) return asyncFunction;
   } catch (error) {
     console.error(errorHandling(error));
-    return Promise().reject();
+    return Promise((resolve, reject) => reject(null));
   }
 }
 

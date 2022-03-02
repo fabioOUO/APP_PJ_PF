@@ -1,3 +1,4 @@
+const { registerLogger } = require("../log");
 const {
   UniqueConstraintError,
   ForeignKeyConstraintError,
@@ -56,6 +57,9 @@ const errorHandling = (error, variabe) => {
     error
       ? (e = { name: error.name, message: error.message, stack: error.stack })
       : e;
+
+  /* Gerar arquivo de log de erros */
+  registerLogger("error", e);
   return e;
 };
 
