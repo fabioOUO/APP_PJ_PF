@@ -7,8 +7,8 @@ const { errorHandling } = require("../Others/error");
 function validationVar(variabe, nameVariabe) {
   try {
     if (!variabe) throw errorHandling(new ReferenceError(), nameVariabe);
-  } catch (error) {
-    console.error(errorHandling(error));
+  } catch (e) {
+    console.error(errorHandling(e, variabe));
   }
   return variabe != undefined && variabe != null;
 }

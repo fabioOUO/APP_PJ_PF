@@ -7,8 +7,11 @@ const { error } = require("../Others");
 /* Consulta registro com id do parametro de entrada */
 async function findByPk(model, codigo) {
   try {
-    if (validationVar(model, "model") && validationVar(codigo, "codigo"))
-      return await model.findByPk(codigo);
+    if (validationVar(model, "model") && validationVar(codigo, "codigo")) {
+      const REGISTER = await model.findByPk(codigo);
+      if (REGISTER !== null) return await REGISTER.destroy();
+      else return [];
+    }
   } catch (e) {
     return error(e);
   }

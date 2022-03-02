@@ -10,7 +10,7 @@ const update = (req, res, controller, controllerName, newRegister) => {
     if (validationVar(controller, controllerName)) {
       return controller
         .update(newRegister)
-        .then((register) => res.status(201).send("Successful operation!"))
+        .then((register) => res.status(201).send(register))
         .catch((e) => error(e, res));
     }
   } catch (error) {

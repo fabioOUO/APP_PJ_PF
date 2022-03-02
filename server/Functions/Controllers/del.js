@@ -5,14 +5,13 @@ const { findByPk } = require("../Controllers/findByPk");
 
 /* Declaração de função */
 
-/* deleta um registro com o id do parametro */
-async function del(model, id) {
+/* deleta um registro com o codigo do parametro */
+async function del(model, codigo) {
   try {
-    if (validationVar(model, "model") && validationVar(id, "id")) {
-      const REGISTER = await findByPk(model, id);
-      if (REGISTER.name === "ConnectionError") throw connectionError();
-      if (validationVar(REGISTER, "REGISTER") && !(REGISTER instanceof Error))
-        return await REGISTER.destroy();
+    if (validationVar(model, "model") && validationVar(codigo, "codigo")) {
+      const REGISTER = await model.findByPk(codigo);
+      if (REGISTER !== null) return await REGISTER.destroy();
+      else return [];
     }
   } catch (e) {
     return error(e, undefined);

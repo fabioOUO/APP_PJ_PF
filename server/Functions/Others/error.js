@@ -44,9 +44,7 @@ const timeoutError = () => {
 
 /* Tratamento de erros */
 const errorHandling = (error, variabe) => {
-  let e = {};
-  // apagar
-  console.log("errorHandling = " + error);
+  let e = { name: "Error", message: "Variavel erro é null ou undefined" };
 
   if (error instanceof ReferenceError) e = refError(variabe);
   else if (error instanceof UniqueConstraintError) e = uniqueConstraintError();
@@ -54,9 +52,11 @@ const errorHandling = (error, variabe) => {
     e = foreignKeyConstraintError();
   else if (error instanceof ConnectionError) e = connectionError();
   else if (error instanceof TimeoutError) e = timeoutError();
-  else return { ...error };
-
-  return { name: e.name, message: e.message };
+  else
+    error
+      ? (e = { name: error.name, message: error.message, stack: error.stack })
+      : e;
+  return e;
 };
 
 const error = (e, res) => {
