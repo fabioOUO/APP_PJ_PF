@@ -1,7 +1,7 @@
 /* Importação */
 const { validationVar } = require("../Validations");
 const { error } = require("../Others");
-const { findByPk } = require("../Controllers/findByPk");
+const { registerLogger } = require("../log");
 
 /* Declaração de função */
 
@@ -23,9 +23,13 @@ async function update(model, newRegister) {
           if (CAMPOS[i] !== "codigoPessoa")
             OLD[CAMPOS[i]] = newRegister[CAMPOS[i]];
         }
-        return await OLD.save();
+
+        OLD.save();
+        registerLogger("info", OLD, "atualizado");
+
+        return [{ status: "ok", message: "Registro atualizado." }];
       } else {
-        return [];
+        return [{ message: "Nenhum registro encontrado." }];
       }
     }
   } catch (e) {
